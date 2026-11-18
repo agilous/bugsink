@@ -74,6 +74,13 @@ EMAIL_BACKEND = "bugsink.email_backends.QuietConsoleEmailBackend"  # instead of 
 # EMAIL_USE_TLS = ...
 # EMAIL_USE_SSL = ...
 
+# EMAIL_BACKEND = "bugsink.email_backends.OAuth2EmailBackend"  # SMTP with an OAuth2 token, e.g. for Microsoft 365
+# EMAIL_HOST, EMAIL_HOST_USER, EMAIL_PORT, EMAIL_USE_TLS: as for SMTP above (no EMAIL_HOST_PASSWORD)
+# EMAIL_OAUTH2_TOKEN_URL = "https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token"
+# EMAIL_OAUTH2_CLIENT_ID = ...
+# EMAIL_OAUTH2_CLIENT_SECRET = ...
+# EMAIL_OAUTH2_SCOPE = "https://outlook.office365.com/.default"
+
 # Uncomment the line below to show all sent emails in the logs
 # LOGGING['loggers']['bugsink.email']['level'] = "INFO"
 

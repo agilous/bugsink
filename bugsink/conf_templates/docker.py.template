@@ -109,6 +109,12 @@ if EMAIL_BACKEND == "django.core.mail.backends.smtp.EmailBackend" or os.getenv("
     EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", "False").lower() in ("true", "1", "yes")
     EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", str(not EMAIL_USE_SSL)).lower() in ("true", "1", "yes")
 
+    # For EMAIL_BACKEND=bugsink.email_backends.OAuth2EmailBackend (e.g. Microsoft 365 without basic auth)
+    EMAIL_OAUTH2_TOKEN_URL = os.getenv("EMAIL_OAUTH2_TOKEN_URL")
+    EMAIL_OAUTH2_CLIENT_ID = os.getenv("EMAIL_OAUTH2_CLIENT_ID")
+    EMAIL_OAUTH2_CLIENT_SECRET = os.getenv("EMAIL_OAUTH2_CLIENT_SECRET")
+    EMAIL_OAUTH2_SCOPE = os.getenv("EMAIL_OAUTH2_SCOPE")
+
 if os.getenv("EMAIL_LOGGING", "false").lower() in ("true", "1", "yes"):
     LOGGING['loggers']['bugsink.email']['level'] = "INFO"
 
